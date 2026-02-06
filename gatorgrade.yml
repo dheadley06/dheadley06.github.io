@@ -14,7 +14,7 @@
   - description: "Index page calls base layout in preamble"
     check: MatchFileFragment
     options:
-      fragment: 'import BaseLayout from "../Layouts/BaseLayout.astro"'
+      fragment: "import BaseLayout from '../layouts/BaseLayout.astro'"
       count: 1
       exact: true
 - src/pages/index.astro:
