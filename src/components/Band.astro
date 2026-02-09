@@ -1,0 +1,14 @@
+---
+const { bandTitle } = Astro.props;
+---
+<section>
+    <div>
+        <div>
+            <h2>{bandTitle}</h2>
+            <p>
+                <slot/>
+            </p>
+        </div>
+        <img src = "/img/picture_placeholder.png" alt = "Image placeholder" />
+    </div>
+</section>

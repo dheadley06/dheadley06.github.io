@@ -1,0 +1,38 @@
+---
+pageTitle: 'About'
+---
+
+import Band from '../components/Band.astro';
+import Excerpt from '../components/Excerpt.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+<BaseLayout pageTitle={frontmatter.pageTitle}>
+
+    <Band bandTitle = "It started with a Lorem...">
+    And _ended_ with some Markdown! Truly a `wonder` to **behold**. We can whatever
+    we want, like:
+
+    > quote some rando
+
+    |Build |Tables |From Markdown |
+    |:-----|:------|:-------------|
+    |Yep   |✅     |This is Markdown! |
+
+    ```html
+    <p>No need to do this!</p>
+    ```
+
+    We don't even need to put any of this text in a paragraph,just Markdown it!
+
+    * Write Markdown
+    * Put it in the component or page
+    * _And_, you can still style from HTML
+    </Band>
+
+<div>
+    <Excerpt/>
+    <Excerpt/>
+    <Excerpt/>
+</div>
+
+</BaseLayout>

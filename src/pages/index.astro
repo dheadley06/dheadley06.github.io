@@ -1,8 +1,50 @@
 ---
-const pageTitle = "Landing";
+import Band from '../components/Band.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Lorem Ipsum";
 ---
-<BaseLayout pageTitle = {pageTitle}>
-    <!-- astro <slot /> -->
-    Lorem ipsum.
+<BaseLayout pageTitle={pageTitle}>
+	<section>
+		<img src = "/img/picture_placeholder.png" alt = "Image placeholder" />
+		<img src = "/img/picture_placeholder.png" alt = "Image placeholder" />
+		<img src = "/img/picture_placeholder.png" alt = "Image placeholder" />
+	</section>
+	<Band bandTitle = "Lorem Ipsum">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut libero eu 
+		justo mattis vulputate. Etiam accumsan sollicitudin turpis, a aliquam arcu. Donec 
+		vel mi eu mi varius tincidunt id nec urna. Duis urna massa, hendrerit nec neque vel, 
+		rutrum congue sem. Vivamus felis mi, ornare id dignissim ac, viverra sed quam. 
+		In nec consectetur nulla. Aliquam cursus blandit magna, vel condimentum purus mattis 
+		vitae. Sed nec tempus nibh, quis posuere massa. Etiam a placerat urna. Aliquam erat 
+		volutpat. Donec gravida tortor arcu, sed fringilla arcu laoreet sed. Suspendisse 
+		consectetur felis sem, ut interdum orci ornare non. Donec cursus massa non euismod 
+		luctus.
+	</Band>
+	<h2>News Ipsum</h2>
+	<section>
+		<article>
+			<h3>Lorem Ipsum</h3>
+			<p >
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
+			</p>
+		</article>
+		<article>
+			<h3>Etiam Accumsan</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
+			</p>
+		</article>
+		<article>
+			<h3>Donec Gravida</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
+			</p>
+		</article>
+		<article>
+			<h3>Suspendisse Consectetur</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
+			</p>
+		</article>
+	</section>
 </BaseLayout>
