@@ -1,21 +1,46 @@
 # Portfolio Starter Kit
 
-[![Gatorgrade](../../actions/workflows/grade.yml/badge.svg?branch=main)](../../actions/workflows/grade.yml)
-[![Playwright Tests](../../actions/workflows/playwright.yml/badge.svg?branch=main)](../../actions/workflows/playwright.yml)
+| Date              |           |
+|:------------------|:----------|
+| 11 February 2026   | Assigned  |
+| 25 February 2026   | Due       |
 
-## Creating Pages in Astro
+## Asessment: Styling Pages in Astro
 
-This project benchmark requires you to demonstrate learning in `astro`. Namely:
+![](https://img.shields.io/badge/Assignment%20Type-Assessment-yellow)
 
-* create a base template:
-  * use the template to control the information structure of your pages,
-  * paying special attention to the contents and _kinds_ of information each page creates
-* create `Navigation`, `Header`, and `Footer` components:
-  * using `nav`, `header`, and `footer` elements
-  * the `Navigation` control needs to feature at least a _Home_ and _About_ link
-* integrate these components into your pages for a unified, cross-site experience
-* adds content to these pages using `section`, `main`, and `p`, `img` (with alt text) tags appropriately
-  * see our course textbook _The Coding Workbook_ for more on these tags
+This benchmark requires you to demonstrate learning in `astro`, `HTML`, and `CSS`.
+
+### Products
+
+#### On this branch
+
+* finishing a collaborative activity with CSS, building a demo page
+* implementing the `Excerpt.astro` component in the `index.astro` file and applying styles to it
+
+#### On the `main` branch
+
+* beginning to implement rough, but _accessible_ versions of your page wireframes with `HTML` and `CSS`
+    * these can be `mdx` or `astro` files
+    * these must implement styles in the `public/style/style.css` file
+    * these must use a `BaseLayout`
+* creating at least `3` `components` to use throughout your site
+    * you're likely to create _more_ than that
+
+This assessment is due later; some of the content you're responsible for will be covered
+next week. To achieve this, you'll need to merge your `creating-pages-in-astro` branch with your
+`main` branch to start the process of building out your portfolio.
+
+### Challenge: Testing
+
+![](https://img.shields.io/badge/Assignment%20Type-Challenge-blue)
+
+Because your sites will use a wide variety of approaches, elements, and styles,
+we need to meet to discuss a couple of things, namely:
+
+* a `15` minute interview with the instructor (scheduled during instructor office hours before the `Assessment`'s due date)
+  * the topic will be a discussion of our collaborate page building exercise completed as part of this activity
+* an implemented draft portfolio test using `playwright` which is submitted and approved by the instructor
 
 ### Testing
 
@@ -34,7 +59,11 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
+│   └── style/
+│       └── style.css
 ├── src/
+│   └── components/
+│   └── layouts/
 │   └── pages/
 │       └── index.astro
 └── package.json
