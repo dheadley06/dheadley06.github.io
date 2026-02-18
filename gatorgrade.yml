@@ -7,6 +7,6 @@
 - src/pages/index.astro:
   - check: MatchFileRegex
     options:
-      regex: '<Excerpt.*</Excerpt>'
-      count: 4
+      regex: '<Excerpt.*[a-zA-Z0-9\s]+</Excerpt>'
+      count: 1
       exact: true
