@@ -38,9 +38,10 @@ next week. To achieve this, you'll need to merge your `creating-pages-in-astro` 
 Because your sites will use a wide variety of approaches, elements, and styles,
 we need to meet to discuss a couple of things, namely:
 
-* a `15` minute interview with the instructor (scheduled during instructor office hours before the `Assessment`'s due date)
-  * the topic will be a discussion of our collaborate page building exercise completed as part of this activity
-* an implemented draft portfolio test using `playwright` which is submitted and approved by the instructor
+* a `15` minute interview with the instructor (scheduled during instructor office hours before the `Assessment`'s due date), covering
+  * discussion of our collaborate page building exercise completed as part of this activity
+  * review of a single web page built for your portfolio and its accompanying wireframe
+* an implemented draft portfolio test using a series of student-instructor developed `playwright` tests
 
 ### Testing
 
