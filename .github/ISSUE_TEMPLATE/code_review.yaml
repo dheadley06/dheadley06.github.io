@@ -1,0 +1,269 @@
+name: Code Review
+description: Provide peer review feedback based on established HTML and CSS standards.
+title: "CMPSC 302: Code Review"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Code Review
+  - type: markdown
+    attributes:
+      value: |
+        Respond to the following areas of concerns for a basic HTML/CSS code review.
+  - type: markdown
+    attributes:
+      value: |
+        ### Design standards
+  - type: checkboxes
+    attributes:
+      label: Which design principles does the reviewee's site implement effectively?
+      description: You may select more than one.
+      options:
+        - label: Aligment
+        - label: Balance
+        - label: Symmetry
+        - label: Visual Hierarchy
+        - label: Negative Space
+        - label: Color
+        - label: Type
+  - type: textarea
+    attributes:
+      label: Examples of areas where the site designer uses design principles.
+      description: In the text area above, provide explanations/examples of these principles in use.
+      value: |
+        #### Design Principles
+        Use markdown heading 5 and 6 to describe how the designer used each principle checked above.
+  - type: checkboxes
+    attributes:
+      label: Which design principles should the designer revisit?
+      description: You may select more than one.
+      options:
+        - label: Aligment
+        - label: Balance
+        - label: Symmetry
+        - label: Visual Hierarchy
+        - label: Negative Space
+        - label: Color
+        - label: Type
+  - type: textarea
+    attributes:
+      label: Examples of areas where the site designer should revise their use of a pirnciple
+      description: In the text area above, provide explanations/examples of improvements the designer could make.
+      value: |
+        #### Design Principles
+        Use markdown heading 5 and 6 to describe how the designer used each principle checked above.
+  - type: markdown
+    attributes:
+      value: |
+        ### Assignment standards
+  - type: dropdown
+    attributes:
+      label: This site has at least one page which is reviewable and publically availble at the reviewee's *.github.io URL.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true  
+  - type: dropdown
+    attributes:
+      label: Reviewee's site implements at least 3 Astro components.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true 
+  - type: dropdown
+    attributes:
+      label: Reviewee's site effectively implements a BaseLayout (or other similar construct) for controlling site-wide layout.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true 
+  - type: dropdown
+    attributes:
+      label: Site being reviewed implements styles in the public/style/style.css file.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true 
+  - type: markdown
+    attributes:
+      value: |
+        ### HTML Standards
+  - type: dropdown
+    attributes:
+      label: The sites's BaseLayout contains a <!DOCTYPE> tag
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: The site's BaseLayout uses the <html> root element tag and specifies `en` as the page's language.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: The sites's BaseLayout uses the <html> root element tag and specifies `en` as the page's language.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Throughout all files, the site uses semantic elements where appropriate, only using `div` elements where semantic elements don't exist.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Examples of improper use of non-semantic elements.
+      description: In the text area above, provide references to the site's files that violate the "semantic element first" policy.
+      value: |
+        ```HTML
+          <!-- Use code blocks to include examples -->
+        ```
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: Does the markup of the site use any single ID more than once?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Which IDs are used more than once?
+      placeholder: #example1, #example2
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: Does the markup contain superfluous, un-necessary <div> elements?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Examples of superfluous <div> tags.
+      description: In the text area above, provide references to the site's files that create unnecessary, superfluous div elements.
+      value: |
+        ```HTML
+          <!-- Use code blocks to include examples -->
+        ```
+  - type: dropdown
+    attributes:
+      label: If needing ARIA attributes, does the site use them in the correct places?
+      options:
+        - "Yes"
+        - "No"
+        - "Does not apply"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Examples of elements requiring ARIA attributes.
+      description: In the text area above, provide references to the sites files which demonstrate need for missing ARIA tags.
+      value: |
+        ```HTML
+          <!-- Use code blocks to include examples -->
+        ```
+  - type: markdown
+    attributes:
+      value: |
+        ### CSS Standards
+  - type: dropdown
+    attributes:
+      label: The names of the various CSS rules implemented make sense in the context of their use.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Which rules use confusing, non-descriptive, or ambiguous names?
+      placeholder: #example1, .example2
+    validations:
+      required: false
+  - type: dropdown
+    attributes:
+      label: Where possible, the designer uses CSS variables to unify colors, types, or other CSS properties.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Are padding, margin, and border used correctly?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Examples of elements misusing the above properties.
+      description: In the text area above, provide references to the rules that misuse these CSS properties.
+      value: |
+        ```CSS
+          /* Use code blocks to include examples */
+        ```
+  - type: dropdown
+    attributes:
+      label: Does the designer use absolute units (i.e., pixels) instead of relative units?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true 
+  - type: dropdown
+    attributes:
+      label: Do any CSS rules appear repetitive or redundant? Could some be conslidated into one rule with mulitple uses?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true 
+  - type: textarea
+    attributes:
+      label: Examples of repetitive or redundant rules.
+      description: In the text area above, provide references to relevant CSS rules.
+      value: |
+        ```CSS
+          /* Use code blocks to include examples */
+        ```
+  - type: markdown
+    attributes:
+      value: |
+        ### General commentary
+  - type: textarea
+    attributes:
+      label: Provide areas where the designer's work demonstrates a grasp of course principles.
+      description: Provide items and summary above.
+      value: |
+        1.
+        2.
+        3.
+  - type: textarea
+    attributes:
+      label: Provide areas where the designer's work could use revision.
+      description: Provide items and summary above.
+      value: |
+        1.
+        2.
+        3.
