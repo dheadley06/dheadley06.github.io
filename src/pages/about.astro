@@ -1,20 +1,10 @@
 
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "About Me";
+import AboutBio from '../components/AboutBio.astro';
+const pageTitle = "About | Dylan Headley";
 ---
 
 <BaseLayout pageTitle = {pageTitle}>
-    <section>
-        <img src = "img/feelinmyself.jpg" alt = "a photo of Dylan Headley" width = 300>
-        <h2>Artist Statement</h2>
-        <p>Currently a sophomore at Allegheny College double-majored in Software Engineering and Creative Writing,
-            I aspire to become a poet, professor, and web designer somewhere along the way in my life.</p>
-        <p>As a creative mind first and foremost, I look to merge the power of software and game 
-		    development and expand their range to build better tools for writers and creative visionaries like myself.</p>
-	    <p>At the forefront of my studies is my dedication to poetry, and I explore the depths of the 
-		    medium every day to better my skills. In my most recent work, I have spent countless hours and 
-		    lines attempting to address the unexpected divinity found in ordinary moments of discomfort, pain, or sorrow, 
-		    and the sort of visceral eroticism achieved when the body is transformed into the means to an end.</p>
-    </section>
+    <AboutBio />
 </BaseLayout>
