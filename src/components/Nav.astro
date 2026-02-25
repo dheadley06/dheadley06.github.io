@@ -2,8 +2,37 @@
 ---
 
 <div id = "menu" class = "nav">
-    <a href = "/">Home</a>
-    <a href = "/about">About Me</a>
-    <a href = "/writing">Writing</a>
-    <a href = "/design">Design</a>
+    <div class="nav-links">
+        <a href = "/">Home</a>
+        <a href = "/about">About Me</a>
+        <a href = "/writing">Writing</a>
+        <a href = "/design">Design</a>
+    </div>
 </div>
+
+
+<style>
+
+    .nav {
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--universal-padding);
+        text-align: center;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 7rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        color: var(--color-text);
+        text-decoration: none;
+        font-size: 1rem;
+        font-style: normal;
+    }
+
+
+</style>

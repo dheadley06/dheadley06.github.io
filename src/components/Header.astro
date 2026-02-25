@@ -4,10 +4,45 @@ import Navigation from '../components/Nav.astro';
 ---
 
 <header>
-    <section>
-		<img src = "/img/image.png" alt = "Dylan Headley headshot photo" width = 400/>
-        Dylan Headley
-	</section>
+    
+    <section class="site-header">
+        <div class="site-title">
+            <div class="site-header-image">
+                <img src = "/img/image.png" alt = "Dylan Headley headshot photo" width = 400/>
+            </div>
+            <div class="site-header-text">
+                Dylan Headley
+            </div>
+        </div>
     </section>
     <Navigation />
 </header>
+
+
+<style>
+
+    .site-header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .site-title {
+        display: flex;
+        margin-top: var(--universal-padding);
+        align-items: center;
+    }
+
+    .site-header-image {
+        flex: 1;
+        object-fit: cover;
+    }
+
+    .site-header-text {
+        flex: 1;
+        font-style: italic;
+        font-size: clamp(2rem, 5vw, 8rem);
+
+    }
+
+</style>
