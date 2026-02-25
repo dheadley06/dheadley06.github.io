@@ -1,60 +1,66 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Monolith Light';
+  src: url('/fonts/Monolith-Light.woff2') format('woff2'),
+       url('/fonts/Monolith-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monolith Light It';
+  src: url('/fonts/Monolith-LightItalic.woff2') format('woff2'),
+       url('/fonts/Monolith-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monolith';
+  src: url('/fonts/Monolith-Regular.woff2') format('woff2'),
+       url('/fonts/Monolith-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monolith It';
+  src: url('/fonts/Monolith-RegularItalic.woff2') format('woff2'),
+       url('/fonts/Monolith-RegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* CSS Variables */
 :root {
   --color-bg: #222;
   --color-nav: #222;
   --color-text: #fff;
   --color-border: #fff;
 
-  --font-main: 'Monolith', sans-serif;
-
+  --font-main: 'Monolith', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   --font-weight-light: 300;
-  --font-weight-normal: normal;
+  --font-weight-normal: 400;
+
+  --universal-padding: 1.5rem;
 }
 
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body Styles */
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-main);
-}
-
-@font-face {
-    font-family: 'Monolith';
-    src: url('/fonts/Monolith-Light.woff2') format('woff2'),
-        url('/fonts/Monolith-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Monolith';
-    src: url('/fonts/Monolith-Regular.woff2') format('woff2'),
-        url('/fonts/Monolith-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Monolith';
-    src: url('/fonts/Monolith-LightItalic.woff2') format('woff2'),
-        url('/fonts/Monolith-LightItalic.woff') format('woff');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Monolith';
-    src: url('/fonts/Monolith-RegularItalic.woff2') format('woff2'),
-        url('/fonts/Monolith-RegularItalic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+  font-weight: var(--font-weight-normal);
 }
 
