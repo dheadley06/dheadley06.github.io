@@ -1,0 +1,187 @@
+name: "Progress Report — Personal Portfolio"
+description: "Use this form to report progress on a personal portfolio built with Astro and React."
+title: "Progress Report"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Site Progress Report and Testing Plan
+        Students should fill out the section labeled `Student`, leaving the `Instructor` portion for the course instructor to complete.
+        Once completed, the student should schedule a time to meet with the instructor to review their entries and assess portfolio progress. This meeting must happen by 3 April 2026. 
+  - type: markdown
+    attributes:
+      value: |
+        ## Student
+  - type: dropdown
+    attributes:
+      label: "Current status"
+      description: "Select the term that describes the status of your project"
+      options:
+        - Not started
+        - In progress
+        - Feature complete
+        - Polishing / QA
+        - Blocked
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Code Review Standards
+      description: After reviewing the results from my last code review, I would pass it if conducted again.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Overall Progress
+      description: I have made significant progress on the site since it was last reviewed with the instructor.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Change Log
+      description: Describe the changes you've made since last review.
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Completion Timeline
+      description: I believe that I am on track to complete the design and content of my portfolio in no more than weeks from now.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Areas of Assistance Needed
+      description: List some of the areas where you think you need help in order to move your design to the next stage.
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Interactivity (Intention)
+      description: I have or am planning to add React/interactive components to my portfolio.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Interactivity (Plan or Completion)
+      description: Describe the various interactive features you've implemented or plan to.
+      value: |
+        ### Implemented
+        1.
+        2.
+        3.
+        ...
+        
+        ### Plan to implement
+        1.
+        2.
+        3.
+        ...
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Testing Plan
+      description: In the space provided, describe in detail the testing plan that you would like to implement to test your site.
+      value: |
+        ### Testing plan
+        TODO
+        ...
+      render: bash
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Instructor
+  - type: dropdown
+    attributes:
+      label: "Assessment of Current Status"
+      description: "Select the term that describes the status of the student project"
+      options:
+        - Not started
+        - In progress
+        - Feature complete
+        - Polishing / QA
+        - Blocked
+  - type: textarea
+    attributes:
+      label: Evaluation of Current Status
+      description: Describe the changes necessary for the student to move to the next available status.
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+  - type: dropdown
+    attributes:
+      label: Assessment of Code Review Standards
+      description: After reviewing the results from the student's alst code review, they would pass if conducted again.
+      options:
+        - "Yes"
+        - "No"
+  - type: dropdown
+    attributes:
+      label: Assessment of Code Quality
+      description: The site is built using course principles and techniques in an organized and rational way.
+      options:
+        - "Yes"
+        - "No"
+  - type: dropdown
+    attributes:
+      label: Asssessment of Overall Progress
+      description: The student has made significant progress on the site since it was last reviewed.
+      options:
+        - "Yes"
+        - "No"
+  - type: dropdown
+    attributes:
+      label: Evaluation of Code Quality
+      description: Using the following scale, rate the student's overall code quality.
+      options:
+        - "Does not meet standards"
+        - "Meets standards"
+        - "Exceeds standards"
+  - type: textarea
+    attributes:
+      label: Elaboration on Code Quality
+      description: Describe the reasons for the rating entered above.
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+  - type: textarea
+    attributes:
+      label: Evaluation of Testing Plan
+      description: Provide notes on the testing plan completed above by the student.
+      value: |
+        TODO
+        ...
+      render: bash
