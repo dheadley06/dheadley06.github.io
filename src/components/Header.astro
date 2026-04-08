@@ -1,12 +1,10 @@
 ---
 import Navigation from './Navigation.astro'
+import SearchBar from './Search.jsx'
 ---
 <header>
     <strong>WebCo</strong>
-    <form id = "search">
-        <input name = "search" type = "text" class = "input__rounded" aria-label = "Search">
-        <button type = "submit"><i class = "fa fa-search"></i></button>
-    </form>
+    <SearchBar client:load />
     <nav>
         <Navigation />
     </nav>

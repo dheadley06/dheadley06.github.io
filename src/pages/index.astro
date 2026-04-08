@@ -1,14 +1,30 @@
 ---
 import Band from '../components/Band.astro';
-import Excerpt from '../components/Excerpt.astro'; 
+import Excerpt from '../components/Excerpt.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Slider from '../components/Slider.jsx';
+import ProductImage from '../components/ProductImage.astro';
+import LazyArticles from '../components/LazyArticles.jsx';
 const pageTitle = "Lorem Ipsum";
+const images = [
+	{src: "/img/picture_placeholder.png", alt: "Purple mountains"},
+	{src: "https://picsum.photos/1440/1024", alt: "A random image from Picsum"},
+	{src: "https://placecats.com/1500/1024", alt: "A cat staring at the viewer menacingly"},
+	{src: "https://placehold.co/1440x1024", alt: "A placeholder with dimensions 1440 x 1024"},
+	{src: "https://picsum.photos/1440/1024", alt: "A random image from Picsum"},
+	{src: "/img/picture_placeholder.png", alt: "Purple mountains"},
+];
+const excerptTitles = [
+	"Lorem Ipsum",
+	"Etiam Accumsan",
+	"Donec Gravida",
+	"Suspendisse Consectetur"
+]
 ---
 <BaseLayout pageTitle={pageTitle}>
-	<section class = "full__three_column gap__3_rem">
-		<img src = "/img/picture_placeholder.png" alt = "Image placeholder" />
-		<img src = "/img/picture_placeholder.png" alt = "Image placeholder" />
-		<img src = "/img/picture_placeholder.png" alt = "Image placeholder" />
+	<section aria-labelledby = "primary-heading">
+		<h1 class = "centered" id = "primary-heading">{pageTitle}</h1>
+		<Slider slides = {images} client:load />
 	</section>
 	<Band bandTitle = "Lorem Ipsum">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut libero eu 
@@ -21,27 +37,24 @@ const pageTitle = "Lorem Ipsum";
 		consectetur felis sem, ut interdum orci ornare non. Donec cursus massa non euismod 
 		luctus.
 	</Band>
-	<h2 class = "centered">News Ipsum</h2>
-	<section class = "full__four_column container text__column">
-		<Excerpt articleTitle = "Lorem Ipsum">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
-			</p>
-		</Excerpt>
-		<Excerpt articleTitle = "Etiam Accumsan">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
-			</p>
-		</Excerpt>
-		<Excerpt articleTitle = "Donec Gravida">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
-			</p>
-		</Excerpt>
-		<Excerpt articleTitle = "Suspendisse Consectetur">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
-			</p>
-		</Excerpt>
+	<section aria-labelledby = "news-heading">
+		<h2 id = "news-heading" class = "centered">News Ipsum</h2>
+		<div class = "full__four_column container text__column">
+			{
+				excerptTitles.map(title => (
+					<Excerpt excerptTitle = {title}>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel iaculis 
+						lacus, et fringilla ex. Quisque sed sapien metus. Suspendisse congue hendrerit dapibus. 
+						Mauris ut consectetur quam, vel auctor elit. Nulla gravida urna lacinia est dapibus 
+						faucibus. Vivamus nulla felis, consequat eget dolor id, bibendum interdum lacus. Sed 
+						sit amet ipsum et nibh porta imperdiet sit amet et nisi. Nam maximus libero vel sodales 
+						blandit. Quisque vitae sagittis elit. Fusce at scelerisque magna. Suspendisse bibendum 
+						nulla non scelerisque interdum. Nullam vel lacus congue, tristique velit pretium, auctor 
+						mauris. Fusce in sem sit amet eros feugiat bibendum a nec urna. Morbi.
+					</Excerpt>
+				))
+			}
+
+		</div>
 	</section>
 </BaseLayout>
