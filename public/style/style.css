@@ -8,17 +8,27 @@
     --webco-color-gray: #D9D9D9;
     --webco-printer-black: #222;
     --webco-white: #fff;
+    --band-background: var(--webco-color-purple-bg);
+    --band-text: var(--webco-white);
+    --major-page-elements: var(--webco-printer-black);
+}
+
+:root[data-theme="dark"] {
+    background: var(--webco-printer-black);
+    --band-background: var(--webco-white);
+    --band-text: var(--webco-color-purple-bg);
+    --major-page-elements: var(--webco-white);
 }
 
 * {
     margin: 0;
     line-height: 2rem;
-    color: var(--webco-printer-black);
+    color: var(--major-page-elements);
 }
 
 ul, li, i, b, em, strong {
-    color: var(--webco-white);
-}
+    color: var(--major-page-elements);
+}   
 
 h1, h2, h3, h4, h5, h6 {
     padding: 2rem 0;
@@ -90,6 +100,7 @@ article {
     overflow: hidden;
     text-wrap: balance;
     padding-right: 1rem;
+    transition: 2s;
 }
 
 article p {
@@ -109,6 +120,10 @@ th, td {
     border: 1px solid var(--webco-color-gray);
 }
 
+#menu {
+    position: relative;
+}
+
 #search {
     margin: 0 auto;
     width: 100%;
@@ -124,6 +139,120 @@ th, td {
     border: none;
 }
 
+.mode-toggle {
+    position: relative;
+    display: inline-block;
+    top: .125rem;
+    width: 2rem;
+    height: 1rem;
+
+}
+
+.mode-toggle input {
+    display: none;
+}
+
+.mode-slider {
+    position: absolute;
+    background: var(--webco-white);
+    border-radius: 34px;
+    cursor: pointer;
+    width: 2rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .4s;
+}
+
+.mode-slider:before {
+    position: absolute;
+    background: var(--webco-color-purple-bg);
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    border-radius: 1rem;
+    left:0;
+    transition: .4s;
+}
+
+input:checked + .mode-slider {
+    background: var(--webco-color-purple-bg);
+}
+
+input:checked + .mode-slider:before {
+    transform: translateX(1rem);
+    background: var(--webco-white);
+}
+
+.image-slider {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    width: 95vw;
+    margin: 0 auto;
+}
+
+.image-slider ul {
+    height: 100%;
+    padding: 0;
+    list-style-type: none;
+    white-space: nowrap;
+}
+
+.image-slider li {
+    height: 100%;
+    display: inline-block;
+    margin: 0 3rem 0 0;
+}
+
+.image-slider img {
+    height: auto;
+    width: calc(95vw/3 - 2rem);
+    transition: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-slider-lr-toggle {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    color: var(--webco-color-purple-bg);
+    align-content: center;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.right-toggle {
+    right: 0;
+}
+
+.left-toggle {
+    left: 0;
+}
+
+.auto-suggest {
+    list-style-type: none;
+    position: absolute;
+    background-color: var(--webco-white);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    border: var(--webco-color-gray) 1px solid;
+}
+
+.auto-suggest-item {
+    color: var(--webco-printer-black)
+}
+.auto-suggest-item:hover {
+    background-color: var(--webco-color-purple-bg);
+    color: var(--webco-white);
+    border-radius: 8px;
+}
+
+.slider ul {
+    list-style-type: none;
+}
+
 .full__three_column {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -136,6 +265,32 @@ th, td {
     margin: 0 auto;
 }
 
+.slider {
+    height: 50vh;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    padding-left: 0;
+    width: 95vw;
+    margin: 0 auto;
+}
+
+.slider ul {
+    height: 100%;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.slider li {
+    display: inline-block;
+    margin: 0 3rem 0 0;
+    height: 100%;
+}
+
+.slider img {
+    height: 100%;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 .full__four_column {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -143,11 +298,11 @@ th, td {
 
 .full__purple_band {
     width: 100%;
-    background: var(--webco-color-purple-bg);
+    background: var(--band-background);
 } 
 
 .full__purple_band :is(h1, h2, h3, h4, h5, h6, p) {
-    color: var(--webco-white);
+    color: var(--band-text);
 }
 
 .input__rounded {
@@ -224,6 +379,10 @@ th, td {
   #search {
     position: relative;
     width: 50vw;
+  }
+
+  .image-slider img {
+    width: calc(95vw);
   }
 
 }
