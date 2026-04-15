@@ -1,12 +1,15 @@
 ---
-import Navigation from "./Navigation.astro";
+import ThemeToggle from "./ThemeToggle.jsx";
 ---
 
-<div class="header">
-    <div class="header-logo">
-        <h2>under construction</h2>
-    </div>
-    <div class="header-nav">
-        <Navigation />
+<div class="header-component page__grid">
+    <!-- <img class="logo page__grid-left"> -->
+    <div class = "nav page__grid-right">
+        <a href = "/">Home</a>
+        <a href = "#about">About</a>
+        <a href = "#writing">Writing</a>
+        <a href = "#design">Design</a>
+        <a href = "#contact">Contact</a>
+        <ThemeToggle client:load />
     </div>
 </div>
