@@ -1,0 +1,39 @@
+---
+import Accordion from "./Accordion.jsx";
+
+const experienceItems = /** @type {any} */ ([
+	{
+		title: "Applications & Web Design Research",
+		subtitle: "Allegheny College CIS | 2026",
+		body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	},
+    {
+		title: "Poetry Workshop Residency",
+		subtitle: "Paris, France | 2026",
+		body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	},
+	{
+		title: "Lead Teaching Assistant",
+		subtitle: "Allegheny College CIS | 2025-present",
+		body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	},
+	{
+		title: "Community Media Coordinator",
+		subtitle: "Allegheny College English | 2025-present",
+		body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	},
+	{
+		title: "Warehouse Logistics Intern",
+		subtitle: "Logistics Plus Inc. | 2025",
+		body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	},
+    {
+		title: "In-Store Inventory Software UX Tester",
+		subtitle: "Dick's Sporting Goods | 2023-2025",
+		body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	},
+]);
+---
+
+<h2>honors<br/><em>& experience</em></h2>
+<Accordion client:load items={experienceItems} />

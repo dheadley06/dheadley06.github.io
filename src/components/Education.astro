@@ -1,0 +1,24 @@
+---
+import Accordion from "./Accordion.jsx";
+
+const educationItems = /** @type {any} */ ([
+	{
+		title: "B.S. in Software Engineering & Creative Writing",
+		subtitle: "Allegheny College | 2028 (in progress)",
+		body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+	},
+    {
+		title: "Dual Enrolment",
+		subtitle: "Gannon University | 2022-2024",
+		body: "Completed 3 courses in English Creative Writing as well as upper-level French.",
+	},
+    {
+		title: "High School Diploma",
+		subtitle: "Northwest Pennsylvania Collegiate Academy | 2024",
+		body: "Graduated sixth in my class with a GPA of 3.99. I also took 12 AP courses and served on the boards of several clubs.",
+	},
+]);
+---
+
+<h2>education<br/><em>& certification</em></h2>
+<Accordion client:load items={educationItems} />
