@@ -621,7 +621,7 @@ header {
   bottom: 0;
   height: 3.5rem;
   pointer-events: none;
-  background: linear-gradient(to bottom, transparent, var(--background-shallows));
+  background: linear-gradient(to bottom, transparent, var(--foam));
 }
 
 .design__card {
