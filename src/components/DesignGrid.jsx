@@ -49,30 +49,34 @@ export default function DesignGrid({ filters = [], projects = [] }) {
         ))}
       </div>
 
-      <div className="design__grid" role="list">
-        {visibleProjects.map((project) => (
-          <article className="design__card" role="listitem" key={`${project.title}-${project.context}`}>
-            <div className={`design__thumb design__thumb--${project.category}`}>
-              {project.image ? (
-                <img
-                  className="design__thumb-image"
-                  src={project.image}
-                  alt={`${project.title} project preview`}
-                  loading="lazy"
-                />
-              ) : null}
-              <span className={`design__badge design__badge--${project.category}`}>
-                {project.category.toUpperCase()}
-              </span>
-            </div>
+      <div className="design__grid-shell">
+        <div className="design__grid" role="list">
+          {visibleProjects.map((project) => (
+            <article className="design__card" role="listitem" key={`${project.title}-${project.context}`}>
+              <div className={`design__thumb design__thumb--${project.category}`}>
+                {project.image ? (
+                  <img
+                    className="design__thumb-image"
+                    src={project.image}
+                    alt={`${project.title} project preview`}
+                    loading="lazy"
+                  />
+                ) : null}
+                <span className={`design__badge design__badge--${project.category}`}>
+                  {project.category.toUpperCase()}
+                </span>
+              </div>
 
-            <div className="design__info">
-              <p className="design__title">{project.title}</p>
-              <p className="design__context">{project.context}</p>
-              <p className="design__body">{project.body}</p>
-            </div>
-          </article>
-        ))}
+              <div className="design__info">
+                <p className="design__title">{project.title}</p>
+                <p className="design__context">{project.context}</p>
+                <p className="design__body">{project.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="design__grid-fade" aria-hidden="true" />
       </div>
     </div>
   );

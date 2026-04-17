@@ -5,11 +5,64 @@ import ThemeToggle from "./ThemeToggle.jsx";
 <div class="header-component page__grid">
     <!-- <img class="logo page__grid-left"> -->
     <div class = "nav page__grid-right">
-        <a href = "#">Home</a>
-        <a href = "#about">About</a>
-        <a href = "#writing">Writing</a>
-        <a href = "#design">Design</a>
-        <a href = "#contact">Contact</a>
+                <a class="nav__link" href="#home" data-section="home">Home</a>
+                <a class="nav__link" href="#about" data-section="about">About</a>
+                <a class="nav__link" href="#writing" data-section="writing">Writing</a>
+                <a class="nav__link" href="#design" data-section="design">Design</a>
+                <a class="nav__link" href="#contact" data-section="contact">Contact</a>
         <ThemeToggle client:load />
     </div>
 </div>
+
+<script is:inline>
+    const navLinks = Array.from(document.querySelectorAll('.nav__link'));
+
+    if (navLinks.length > 0) {
+        const sections = navLinks
+            .map((link) => {
+                const targetId = link.getAttribute('data-section');
+                if (!targetId) return null;
+                const target = document.getElementById(targetId);
+                return target ? { id: targetId, element: target, link } : null;
+            })
+            .filter(Boolean);
+
+        const setActiveLink = (activeId) => {
+            sections.forEach(({ id, link }) => {
+                const isActive = id === activeId;
+                link.classList.toggle('is-active', isActive);
+                if (isActive) {
+                    link.setAttribute('aria-current', 'location');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        };
+
+        const getCurrentSectionId = () => {
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.getBoundingClientRect().height : 0;
+            const scrollMarker = window.scrollY + headerHeight + 24;
+
+            let activeId = sections[0]?.id ?? 'home';
+
+            sections.forEach(({ id, element }) => {
+                if (element.offsetTop <= scrollMarker) {
+                    activeId = id;
+                }
+            });
+
+            return activeId;
+        };
+
+        const updateActiveSection = () => {
+            setActiveLink(getCurrentSectionId());
+        };
+
+        window.addEventListener('scroll', updateActiveSection, { passive: true });
+        window.addEventListener('resize', updateActiveSection);
+        window.addEventListener('hashchange', updateActiveSection);
+
+        updateActiveSection();
+    }
+</script>

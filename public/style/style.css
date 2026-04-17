@@ -14,6 +14,10 @@
   --shallows: #A8DADC;
   --open-ocean: #457B9D;
   --deep-sea: #1D3557;
+  --foam-soft: #f1faee6b;
+  --open-ocean-soft: #457b9d17;
+  --coral-soft: #ff644c1a;
+  --deep-sea-soft: #1d35571a;
 
   --page-gutter: 10rem;
   --page-gap: 7rem;
@@ -101,7 +105,7 @@ main {
 .about,
 .writing,
 .design {
-  height: 100vh;
+  height: 950px;
   width: 100%;
   padding-top: var(--page-gap);
 }
@@ -143,12 +147,69 @@ header {
   gap: 1rem;
 }
 
-.nav a {
+.nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
+  padding: 0.2rem 0.25rem;
   font-family: var(--font-mono);
   font-size: medium;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
   text-decoration: none;
   color: var(--deep-sea);
+  transition: color 180ms ease, transform 180ms ease;
+  animation: nav-link-in 380ms ease both;
+}
+
+.nav__link:nth-of-type(2) {
+  animation-delay: 35ms;
+}
+
+.nav__link:nth-of-type(3) {
+  animation-delay: 70ms;
+}
+
+.nav__link:nth-of-type(4) {
+  animation-delay: 105ms;
+}
+
+.nav__link:nth-of-type(5) {
+  animation-delay: 140ms;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  inset: -0.15rem -0.3rem;
+  border-radius: var(--corner-rounding);
+  background-color: var(--open-ocean-soft);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 180ms ease;
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--coral);
+  transform: translateY(-1px);
+}
+
+.nav__link:hover::after,
+.nav__link:focus-visible::after,
+.nav__link.is-active::after {
+  opacity: 1;
+}
+
+.nav__link.is-active {
+  color: var(--coral);
+}
+
+.nav__link:focus-visible {
+  outline: 2px solid var(--open-ocean);
+  outline-offset: 2px;
 }
 
 .nav__theme-toggle {
@@ -358,7 +419,7 @@ header {
   --list-row-size: 8.5rem;
   --list-max-visible: 4;
   position: relative;
-  height: calc(var(--list-row-size) * var(--list-max-visible));
+  /* height: calc(var(--list-row-size) * var(--list-max-visible)); */
   background: var(--background-shallows);
   border-radius: var(--corner-rounding);
   border-top: 1px solid var(--shallows);
@@ -401,7 +462,7 @@ header {
 }
 
 .writing__list-item-link:hover {
-  background: rgba(241, 250, 238, 0.4);
+  background: var(--foam);
 }
 
 .writing__list-title {
@@ -510,32 +571,41 @@ header {
 }
 
 .design__filter--web.is-active {
-  background: rgba(69, 123, 157, 0.12);
+  background: var(--open-ocean-soft);
   border-color: var(--open-ocean);
   color: var(--open-ocean);
 }
 
 .design__filter--software.is-active {
-  background: rgba(255, 100, 76, 0.1);
+  background: var(--coral-soft);
   border-color: var(--coral);
   color: var(--coral);
 }
 
 .design__filter--collab.is-active {
-  background: rgba(29, 53, 87, 0.1);
+  background: var(--deep-sea-soft);
   border-color: var(--deep-sea);
   color: var(--deep-sea);
+}
+
+.design__grid-shell {
+  --design-row-size: 16rem;
+  --design-row-gap: 0.8rem;
+  position: relative;
+  height: calc((var(--design-row-size) * 2) + var(--design-row-gap));
+  overflow: hidden;
 }
 
 .design__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.8rem;
-  flex: 1;
+  gap: var(--design-row-gap);
+  height: 100%;
   min-height: 0;
   overflow-y: auto;
   align-content: start;
   padding-right: 0.25rem;
+  padding-bottom: 3.5rem;
   scrollbar-width: none;
 }
 
@@ -543,10 +613,24 @@ header {
   display: none;
 }
 
+.design__grid-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3.5rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--background-shallows));
+}
+
 .design__card {
   border: 1px solid var(--shallows);
   background: var(--foam);
   transition: opacity 160ms ease;
+  height: var(--design-row-size);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .design__card:hover {
@@ -555,7 +639,7 @@ header {
 
 .design__thumb {
   width: 100%;
-  height: 8.5rem;
+  height: 8rem;
   position: relative;
   overflow: hidden;
 }
@@ -612,6 +696,8 @@ header {
 .design__info {
   border-top: 1px solid var(--shallows);
   padding: 0.75rem 1rem 1rem;
+  flex: 1;
+  overflow: hidden;
 }
 
 .design__title {
@@ -679,9 +765,9 @@ header {
   background-image:
     linear-gradient(
       115deg,
-      rgba(255, 255, 255, 0) 30%,
-      rgba(255, 255, 255, 0.42) 50%,
-      rgba(255, 255, 255, 0) 70%
+      rgba(241, 250, 238, 0) 30%,
+      var(--foam-soft) 50%,
+      rgba(241, 250, 238, 0) 70%
     ),
     linear-gradient(var(--coral), var(--coral));
   background-size: 260% 100%, 100% 100%;
@@ -727,7 +813,7 @@ header {
   background-image: linear-gradient(
     110deg,
     var(--coral) 28%,
-    #fff7f4 50%,
+    var(--foam-soft) 50%,
     var(--coral) 72%
   );
   background-size: 320% 100%;
@@ -760,7 +846,34 @@ header {
   }
 }
 
+@keyframes nav-link-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .nav__link {
+    animation: none;
+    transition: none;
+  }
+
+  .nav__link:hover,
+  .nav__link:focus-visible {
+    transform: none;
+  }
+
+  .nav__link::before,
+  .nav__link::after {
+    transition: none;
+  }
+
   .button__orange {
     transition: none;
   }
