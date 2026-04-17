@@ -1,0 +1,80 @@
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0efe6; }
+  .pg-wrap { background: #f0efe6; padding: 2rem 1.5rem 3rem; font-family: Georgia, serif; }
+  h1 { font-size: 36px; font-weight: 400; color: #1e3248; line-height: 1.1; margin-bottom: 4px; }
+  .pg-sub { font-style: italic; font-size: 28px; color: #4a7a90; margin-bottom: 1.2rem; }
+  .pg-divider { border: none; border-top: 0.5px solid #b0b8a8; margin-bottom: 1.2rem; }
+  .pg-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .pg-filter { font-family: sans-serif; font-size: 12px; letter-spacing: 0.08em; padding: 6px 16px; border: 1.5px solid #1e3248; background: none; cursor: pointer; color: #1e3248; transition: background 0.15s, color 0.15s; }
+  .pg-filter.active-all { background: #1e3248; color: #f0efe6; }
+  .pg-filter.active-web { background: none; border-color: #3d7a9a; color: #3d7a9a; }
+  .pg-filter.active-software { background: none; border-color: #e05a38; color: #e05a38; }
+  .pg-filter.active-collab { background: none; border-color: #1e3248; color: #1e3248; font-weight: 500; }
+  .pg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .pg-card { border: 1.5px solid #c8cfc0; background: #f8f7f0; cursor: pointer; transition: opacity 0.2s; }
+  .pg-card.hidden { display: none; }
+  .pg-card:hover { opacity: 0.88; }
+  .pg-thumb { width: 100%; height: 160px; position: relative; }
+  .pg-badge { position: absolute; top: 12px; left: 12px; font-family: sans-serif; font-size: 11px; letter-spacing: 0.1em; padding: 4px 10px; background: #f8f7f0; }
+  .badge-web { color: #3d7a9a; border: 1.5px solid #3d7a9a; }
+  .badge-software { color: #e05a38; border: 1.5px solid #e05a38; }
+  .badge-collab { color: #1e3248; border: 1.5px solid #1e3248; }
+  .thumb-web { background: #3d7a9a; }
+  .thumb-software { background: #e05a38; }
+  .thumb-collab { background: #1e3248; }
+  .pg-info { padding: 0.75rem 1rem 1rem; border-top: 1.5px solid #c8cfc0; }
+  .pg-title { font-size: 20px; font-weight: 400; color: #1e3248; margin-bottom: 2px; }
+  .pg-loc { font-style: italic; font-size: 13px; color: #4a7a90; margin-bottom: 8px; }
+  .pg-body { font-family: sans-serif; font-size: 13px; color: #2a3a30; line-height: 1.6; }
+  @media (max-width: 600px) { .pg-grid { grid-template-columns: 1fr; } }
+</style>
+
+<div class="pg-wrap">
+  <h1>web design</h1>
+  <p class="pg-sub">& other development projects</p>
+  <hr class="pg-divider">
+  <div class="pg-filters">
+    <button class="pg-filter active-all" onclick="filter('all', this)">ALL</button>
+    <button class="pg-filter" onclick="filter('web', this)">WEB DESIGN</button>
+    <button class="pg-filter" onclick="filter('software', this)">SOFTWARE</button>
+    <button class="pg-filter" onclick="filter('collab', this)">COLLAB</button>
+  </div>
+  <div class="pg-grid" id="grid">
+    <div class="pg-card" data-cat="web">
+      <div class="pg-thumb thumb-web"><span class="pg-badge badge-web">WEB DESIGN</span></div>
+      <div class="pg-info"><p class="pg-title">Title</p><p class="pg-loc">Location/Context</p><p class="pg-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+    </div>
+    <div class="pg-card" data-cat="software">
+      <div class="pg-thumb thumb-software"><span class="pg-badge badge-software">SOFTWARE</span></div>
+      <div class="pg-info"><p class="pg-title">Title</p><p class="pg-loc">Location/Context</p><p class="pg-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+    </div>
+    <div class="pg-card" data-cat="software">
+      <div class="pg-thumb thumb-software"><span class="pg-badge badge-software">SOFTWARE</span></div>
+      <div class="pg-info"><p class="pg-title">Title</p><p class="pg-loc">Location/Context</p><p class="pg-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+    </div>
+    <div class="pg-card" data-cat="web">
+      <div class="pg-thumb thumb-web"><span class="pg-badge badge-web">WEB DESIGN</span></div>
+      <div class="pg-info"><p class="pg-title">Title</p><p class="pg-loc">Location/Context</p><p class="pg-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+    </div>
+    <div class="pg-card" data-cat="web">
+      <div class="pg-thumb thumb-web"><span class="pg-badge badge-web">WEB DESIGN</span></div>
+      <div class="pg-info"><p class="pg-title">Title</p><p class="pg-loc">Location/Context</p><p class="pg-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+    </div>
+    <div class="pg-card" data-cat="collab">
+      <div class="pg-thumb thumb-collab"><span class="pg-badge badge-collab">COLLAB</span></div>
+      <div class="pg-info"><p class="pg-title">Title</p><p class="pg-loc">Location/Context</p><p class="pg-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const filterMap = { all: 'active-all', web: 'active-web', software: 'active-software', collab: 'active-collab' };
+function filter(cat, btn) {
+  document.querySelectorAll('.pg-filter').forEach(b => b.className = 'pg-filter');
+  btn.classList.add(filterMap[cat]);
+  document.querySelectorAll('.pg-card').forEach(card => {
+    card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+  });
+}
+</script>

@@ -1,0 +1,15 @@
+---
+import ScrollableList from "./ScrollableList.jsx";
+
+const selectionItems = /** @type {any} */ ([
+	{
+		title: "Coming soon!",
+		subtitle: "under construction",
+		body: "",
+		href: "#",
+	},
+]);
+---
+
+<h2>selected<br/><em>poems & essays</em></h2>
+<ScrollableList client:load items={selectionItems} />

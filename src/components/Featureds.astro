@@ -1,0 +1,30 @@
+---
+import ScrollableList from "./ScrollableList.jsx";
+
+const featuredItems = /** @type {any} */ ([
+	{
+		title: "To the Butcher",
+		subtitle: "Folio, Spring 2026",
+		body: "Receive me–carcass...",
+		actionHref: "#",
+		actionLabel: "read me",
+	},
+	{
+		title: "Birdwatching North of the Bathroom, Haulover Nude Beach",
+		subtitle: "Avalon, Spring 2026",
+		body: "I have dropped my towel and speedo...",
+		actionHref: "#",
+		actionLabel: "read me",
+	},
+	{
+		title: "The Doctor Says It'll Pass Given Time",
+		subtitle: "Avalon, Spring 2026",
+		body: "There’s a pit in my stomach...",
+		actionHref: "#",
+		actionLabel: "read me",
+	},
+]);
+---
+
+<h2>featured<br/><em>publications</em></h2>
+<ScrollableList client:load items={featuredItems} withBuyButton={true} />
