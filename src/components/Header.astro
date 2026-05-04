@@ -4,18 +4,47 @@ import ThemeToggle from "./ThemeToggle.jsx";
 
 <div class="header-component page__grid">
     <!-- <img class="logo page__grid-left"> -->
-    <div class = "nav page__grid-right">
+    <nav class = "nav page__grid-right">
                 <a class="nav__link" href="#home" data-section="home">Home</a>
                 <a class="nav__link" href="#about" data-section="about">About</a>
                 <a class="nav__link" href="#writing" data-section="writing">Writing</a>
                 <a class="nav__link" href="#design" data-section="design">Design</a>
                 <a class="nav__link" href="#contact" data-section="contact">Contact</a>
         <ThemeToggle client:load />
-    </div>
+        <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false">
+            <span class="nav__burger-line"></span>
+            <span class="nav__burger-line"></span>
+            <span class="nav__burger-line"></span>
+        </button>
+    </nav>
 </div>
 
 <script is:inline>
     const navLinks = Array.from(document.querySelectorAll('.nav__link'));
+    const burgerBtn = document.querySelector('.nav__burger');
+    let isMenuOpen = false;
+
+    // Burger menu toggle
+    if (burgerBtn) {
+        burgerBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            burgerBtn.classList.toggle('is-open', isMenuOpen);
+            burgerBtn.setAttribute('aria-expanded', isMenuOpen);
+            navLinks.forEach(link => {
+                link.classList.toggle('is-visible', isMenuOpen);
+            });
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                burgerBtn.classList.remove('is-open');
+                burgerBtn.setAttribute('aria-expanded', false);
+                navLinks.forEach(l => l.classList.remove('is-visible'));
+            });
+        });
+    }
 
     if (navLinks.length > 0) {
         const sections = navLinks
