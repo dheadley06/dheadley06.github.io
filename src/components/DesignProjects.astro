@@ -1,0 +1,25 @@
+---
+import DesignGrid from "./DesignGrid.jsx";
+
+const filters = /** @type {any} */ ([
+  { key: "all", label: "ALL" },
+  { key: "web", label: "WEB DESIGN" },
+  { key: "software", label: "SOFTWARE" },
+  { key: "collab", label: "COLLAB" },
+]);
+
+const projects = /** @type {any} */ ([
+  {
+    title: "OWaylords",
+    context: "Text-RPG Server Management Discord Bot",
+    body: "A Discord bot designed to handle the creation, management, and development of RPG-style Discord servers - Inspired by a lifetime of text roleplay.",
+    category: "software",
+  },
+]);
+---
+
+<DesignGrid
+  client:load
+  filters={/** @type {any} */ (filters)}
+  projects={/** @type {any} */ (projects)}
+/>
